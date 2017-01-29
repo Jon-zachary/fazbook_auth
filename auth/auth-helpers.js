@@ -37,3 +37,27 @@ function createUser(req,res) {
   });
 }
 
+//function will protect the get /user route.
+//if the user isn't logged in it throws a 401 
+//error with a please log in message. if they are logged in 
+//calls next and executes the next code where it is called.
+function loginRequired(req,res,next) {
+  if (!req.user) return res.status(401).json({status: 'Plases log in' });
+
+  return next();
+}
+
+//makes the auth-helper methods available to the rest of the app
+module.exports = {
+  comparePass,
+  loginRedirect,
+  loginRequired,
+  createUser
+};
+
+
+
+
+
+
+
