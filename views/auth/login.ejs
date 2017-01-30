@@ -4,11 +4,11 @@
     <main>
       <div class="container">
         <form action="/auth/login" method="post">
-          <div>
+          <div class="input-field">
             <label>Username:</label>
             <input type="text" name="username"/>
           </div>
-          <div>
+          <div class="input-field">
             <label>Password:</label>
             <input type="password" name="password"/>
           </div>
@@ -19,5 +19,7 @@
       </div>
     </main>
     <% include ../partials/footer.ejs %>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

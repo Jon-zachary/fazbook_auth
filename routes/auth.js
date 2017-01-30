@@ -11,7 +11,7 @@ const passport = require('../auth/local');
 //uses a route handler we will write called login redirect
 //whihc will redirect an already logged in use to their profile page 
 //or render the auth/register.ejs file
-router.get('/register', authHelpers.loginRedirect, (res,req)=>{
+router.get('/register', authHelpers.loginRedirect, (req,res)=>{
   res.render('auth/register');
 });
 
@@ -19,13 +19,15 @@ router.get('/register', authHelpers.loginRedirect, (res,req)=>{
 //uses a custom createUser method we will write 
 //in auth-helpers to create a new user in our db
 //and console log a success message.
-router.post('/register',(req,res,next) =>{
+router.post('/register', (req, res, next)  => {
   return authHelpers.createUser(req, res)
-  .then((response) =>{
+  .then((response) => {
     console.log('registration successful');
   })
-  .catch((err) =>{ res.status(500).json({ status: 'error'});});
+  .catch((err) => { res.status(500).json({ status: 'error' }); });
 });
+
+
 
 //defines a route for get auth/login. calls
 //login redirect  and if they're ot logged in 
@@ -51,7 +53,7 @@ router.get('/logout', (req,res) =>{
   res.redirect('/');
 });
 
-//makes the router module available to the rest of the app
+//makes the router module available to the rest
 module.exports = router;
 
 

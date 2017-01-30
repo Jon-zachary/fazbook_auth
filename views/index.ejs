@@ -2,11 +2,16 @@
   <body>
     <% include partials/header.ejs %>
     <main>
-      <div class="container">
+      <div class="row">
+        <div class="col s3 blue lighten-5 height 100%">
         <p>Hello, this is the main index page!</p>
         <p><a href="/auth/register">click here to register</a></p>
         <p><a href="/auth/login">click here to log in</a></p>
         <p><a href="/auth/logout">click here to logout</a></p>
+        </div>
+        <div class="col s9">
+      <img class="responsive-img right" src="/assets/eating.jpg">
+      </div>
       </div>
     </main>
     <% include partials/footer.ejs %>

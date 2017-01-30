@@ -1,39 +1,46 @@
 <% include ../partials/head.ejs %>
-  <body>
+  <body class="blue lighten-5">
     <% include ../partials/header.ejs %>
-    <main>
-      <div class="container">
+    <main  class="container">
+      <div class="col s12">
         <form action="/auth/register" method="post">
-          <div>
+          <div class="input-field s2">
             <label>Username:</label>
             <input type="text" name="username"/>
           </div>
-          <div>
+          <div class="input-field s2">
             <label>Password:</label>
             <input type="password" name="password"/>
           </div>
-          <div>
+          <div class="input-field s2">
             <label>First Name:</label>
             <input type="text" name="firstName"/>
           </div>
-          <div>
+          <div class="input-field s2">
             <label>Last Name:</label>
             <input type="text" name="lastName"/>
           </div>
-          <div>
+          <div class="input-field s2">
             <label>Email:</label>
             <input type="text" name="email"/>
           </div>
-          <div>
+          <div class="input-field s2">
             <label>Date of Birth:</label>
-            <input type="date" name="dob"/>
+            <input type="date" class="datepicker" name="dob"/>
           </div>
-          <div>
-            <input type="submit" value="Register"/>
+          <div class="input-field s2">
+          <button class="btn waves-effect waves-light btn-small" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+          </button>
           </div>
         </form>
       </div>
     </main>
     <% include ../partials/footer.ejs %>
+    
+    <script> $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });</script>
   </body>
 </html>

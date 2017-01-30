@@ -22,7 +22,8 @@ function loginRedirect(req,res,next) {
 //function will create a user, using the sequelize
 //models.create method. It also encrypts and salts the
 //hash using bcrypt. after it's done it redirects to '/'
-function createUser(req,res) {
+function createUser(req, res) {
+  console.log('creating user');
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -31,6 +32,7 @@ function createUser(req,res) {
     password: hash,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
+    email: req.body.email,
     dob: req.body.dob
   }).then(() => {
     res.redirect('/');
